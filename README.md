@@ -8,26 +8,32 @@ In addition it includes a cookbook with recipes for commonly needed packages und
 Requirements
 ============
 
-cygwin must be installed with the following packages in addition to the standard:
-
-* git
-* wget
-
-chef must also be installed inside cygwin. First the following packages must be installed:
+cygwin must be installed with the following packages in addition to the standard before installing chef:
 
 * make
 * gcc-core 
+* wget
 * ruby
 
-Then one can install chef itself:
+The following commands will do this automatically for you. Run them from the Windows command line (cmd) in the directory where [cygwin's setup.exe][2] is downloaded:
+
+```
+C:\> setup -q -O -s ftp://ftp.sunet.se/pub/lang/cygwin
+```
+
+```
+C:\> setup -q -O -s ftp://ftp.sunet.se/pub/lang/cygwin -P make,gcc-core,wget,ruby
+```
+
+Then chef can be installed inside cygwin:
 
 ```
 gem install ohai chef --no-rdoc --no-ri
 ```
 
-For more information look at the [Installation on Windows][2] walk through on Opscode's wiki. Just remember that you
-should **not** install RubyInstaller/RubyInstaller DevKit for Windows as this won't work properly under cygwin.
+For more information look at the [Installation on Windows][3] walk through on Opscode's wiki. Just remember that you should **not** install RubyInstaller/RubyInstaller DevKit for Windows as this won't work properly under cygwin.
 
 
 [1]: http://code.google.com/p/apt-cyg
-[2]: http://wiki.opscode.com/display/chef/Installation+on+Windows
+[2]: http://cygwin.org/setup.exe
+[3]: http://wiki.opscode.com/display/chef/Installation+on+Windows
