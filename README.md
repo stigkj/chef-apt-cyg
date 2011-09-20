@@ -25,7 +25,8 @@ Then one can install chef itself:
 gem install ohai chef --no-rdoc --no-ri
 ```
 
-For more information look at the [Installation on Windows][2] walk through on Opscode's wiki. Just remember that you should **not** install RubyInstaller/RubyInstaller DevKit for Windows as this won't work properly under cygwin.
+For more information look at the [Installation on Windows][2] walk through on Opscode's wiki. Just remember that you
+should **not** install RubyInstaller/RubyInstaller DevKit for Windows as this won't work properly under cygwin.
 
 
 [1]: http://code.google.com/p/apt-cyg
