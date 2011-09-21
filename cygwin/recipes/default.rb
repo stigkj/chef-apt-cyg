@@ -10,4 +10,5 @@
 cookbook_file "/usr/local/bin/apt-cyg" do
   source "apt-cyg.sh"
   mode 0755
+  only_if { File.exists?("/usr/local/bin/apt-cyg") }
 end
