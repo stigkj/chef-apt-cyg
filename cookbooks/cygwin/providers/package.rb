@@ -1,4 +1,4 @@
-﻿action :install do
+action :install do
   execute "install #{new_resource.package_name}" do
     command "apt-cyg install #{new_resource.package_name}"
     # Do not install package if it is installed already
