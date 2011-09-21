@@ -29,7 +29,7 @@ C:\> setup -q -O -s ftp://ftp.sunet.se/pub/lang/cygwin -P make,gcc-core,wget,rub
 Before installing chef, RubyGems must be installed. Run the following from within cygwin:
 
 ```
-wget -q -O - https://raw.github.com/stigkj/chef-cygwin-nos/master/install-rubygems.sh | sh
+wget --no-check-certificate -q -O - https://raw.github.com/stigkj/chef-cygwin-nos/master/install-rubygems.sh | sh
 ```
 
 Then chef and related tools can be installed from within cygwin:
