@@ -10,7 +10,7 @@
 remote_file "/usr/local/bin/apt-cyg" do
   source "http://apt-cyg.googlecode.com/svn/trunk/apt-cyg"
   mode "0755"
-  only_if { File.exists?("/usr/local/bin/apt-cyg") }
+  not_if { File.exists?("/usr/local/bin/apt-cyg") }
 end
 
 
