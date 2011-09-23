@@ -18,7 +18,7 @@ cd("/tmp") { |dir|
     else
         puts '  retrieving and unpacking RubyGems'
 
-        `wget -q http://rubyforge.org/frs/download.php/75309/rubygems-1.8.10.tgz | tar zxvf rubygems-1.8.10.tgz`
+        `wget -q http://rubyforge.org/frs/download.php/75309/rubygems-1.8.10.tgz | tar zx`
 
         cd("rubygems-1.8.10") { |dir|
             puts '  installing RubyGems'
