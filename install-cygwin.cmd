@@ -2,6 +2,7 @@
 
 set HOME=c:\cygwin
 set SITE=ftp://ftp.sunet.se/pub/lang/cygwin
+set CURRENT_DIR=%~dp0
 
 echo Installing Cygwin under %HOME%...
 
@@ -32,7 +33,7 @@ echo "  extra packages already installed"
 :inside_cygwin
 
 echo "  running installation of chef from inside Cygwin"
-%HOME%\bin\bash.exe --login -c 'wget --no-check-certificate -q -O /tmp/iic.rb https://raw.github.com/stigkj/chef-cygwin/develop/install-inside-cygwin.rb; ruby /tmp/iic.rb'
+%HOME%\bin\bash.exe --login -c "wget --no-check-certificate -q -O /tmp/iic.rb https://raw.github.com/stigkj/chef-cygwin/develop/install-inside-cygwin.rb; sed -i 's_#CURRENT_DIR#_%CURRENT_DIR%_'; ruby /tmp/iic.rb"
 
 
 
