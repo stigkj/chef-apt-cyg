@@ -3,7 +3,8 @@ require 'fileutils'
 include FileUtils
 
 # TODO check exit codes from external processes (backticks)
-#INSTALL_DIR=#INSTALL_DIR#
+# Converts from DOS style to Cygwin style (C:\tmp --> /cygdrive/c/tmp)
+install_dir="#INSTALL_DIR#".downcase.gsub("\\", "/").gsub(":", "").insert(0, "/cygdrive/")
 
 puts
 puts 'Starting installation...'
@@ -35,10 +36,8 @@ cd("/tmp") { |dir|
     end
 }
 
-dir = INSTALL_DIR.regexp("C:\ --> /cygdrive/c").regexp("\ --> /")
-
-if (File.exist?("$dir/client.rb") && File.exist?("$dir/validation.pem"))
+if (File.exist?("$install_dir/client.rb") && File.exist?("$install_dir/validation.pem"))
     mkdir("/etc/chef")
-    cp(["$dir/client.rb", "$dir/validation.pem"], "/etc/chef")
+    cp(["$install_dir/client.rb", "$install_dir/validation.pem"], "/etc/chef")
 end
 
