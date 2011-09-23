@@ -5,7 +5,10 @@ set SITE=ftp://ftp.sunet.se/pub/lang/cygwin
 set CURRENT_DIR=%~dp0
 set CURRENT_DIR=%CURRENT_DIR:\=/%
 
+echo.
 echo Installing Cygwin under %CYGWIN_HOME%...
+
+if not exist setup.exe goto setup_not_found
 
 if not exist %CYGWIN_HOME% goto default_packages
 
@@ -34,7 +37,12 @@ echo   extra packages already installed
 :inside_cygwin
 
 echo   running installation of chef from inside Cygwin
-
-
 %CYGWIN_HOME%\bin\bash.exe --login -c "wget --no-check-certificate -q -O /tmp/iic.rb https://raw.github.com/stigkj/chef-cygwin/develop/install-inside-cygwin.rb; sed -i 's&#INSTALL_DIR#&%CURRENT_DIR%&' /tmp/iic.rb; ruby /tmp/iic.rb"
+goto end
 
+:setup_not_found
+echo.
+echo setup.exe must be downloaded from http://cygwin.org and put in this directory before installation
+echo.
+
+:end
