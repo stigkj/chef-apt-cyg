@@ -4,7 +4,7 @@ include FileUtils
 
 # TODO check exit codes from external processes (backticks)
 # Converts from DOS style to Cygwin style (C:\tmp --> /cygdrive/c/tmp)
-install_dir="#INSTALL_DIR#".downcase.gsub("\\", "/").gsub(":", "").insert(0, "/cygdrive/")
+install_dir="#INSTALL_DIR#".downcase.gsub(":", "").insert(0, "/cygdrive/")
 
 puts
 puts 'Starting installation...'

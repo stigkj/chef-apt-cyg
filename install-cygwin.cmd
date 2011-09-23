@@ -3,6 +3,7 @@
 set HOME=c:\cygwin
 set SITE=ftp://ftp.sunet.se/pub/lang/cygwin
 set CURRENT_DIR=%~dp0
+set CURRENT_DIR=%CURRENT_DIR:\=/%
 
 echo Installing Cygwin under %HOME%...
 
