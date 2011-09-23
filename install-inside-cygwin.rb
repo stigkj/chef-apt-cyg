@@ -10,7 +10,7 @@ puts
 puts 'Starting installation...'
 puts
 
-cd("/tmp") { |dir|
+cd("/tmp") {
     `gem --version`
 
     if ($?.exitstatus == 0)
@@ -20,7 +20,7 @@ cd("/tmp") { |dir|
 
         `wget -q http://rubyforge.org/frs/download.php/75309/rubygems-1.8.10.tgz | tar zx`
 
-        cd("rubygems-1.8.10") { |dir|
+        cd("rubygems-1.8.10") {
             puts '  installing RubyGems'
             `ruby setup.rb --no-format-executable`
         }
