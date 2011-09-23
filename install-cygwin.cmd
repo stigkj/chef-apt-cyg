@@ -1,5 +1,6 @@
 @echo off
 
+set CYGWIN=nodosfilewarning
 set CYGWIN_HOME=c:\cygwin
 set SITE=ftp://ftp.sunet.se/pub/lang/cygwin
 set CURRENT_DIR=%~dp0
