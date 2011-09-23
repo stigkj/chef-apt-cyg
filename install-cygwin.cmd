@@ -31,7 +31,7 @@ echo "  extra packages already installed"
 
 :inside_cygwin
 
-%HOME%\bin\bash.exe --login -c 'wget --no-check-certificate -q -O /tmp/iic.rb https://github.com/stigkj/chef-cygwin/install-inside-cygwin.rb; ruby /tmp/iic.rb'
+%HOME%\bin\bash.exe --login -c 'wget --no-check-certificate -q -O /tmp/iic.rb https://raw.github.com/stigkj/chef-cygwin/develop/install-inside-cygwin.rb; ruby /tmp/iic.rb'
 
 
 
