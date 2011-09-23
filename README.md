@@ -41,6 +41,21 @@ gem install ohai chef --no-rdoc --no-ri
 For more information look at the [Installation on Windows][3] walk through on Opscode's wiki. Just remember that you
 should **not** install RubyInstaller/RubyInstaller DevKit for Windows as this won't work properly under cygwin.
 
+Automated install
+=================
+
+* Download setup.exe and install-chef.cmd to c:\tmp
+* Download client.rb and validator.pem to c:\tmp
+* Run install-chef.cmd
+ 1. runs setup with standard packages
+ 2. runs setup with extra packages: make, gcc-core, wget and ruby
+ 3. starts cygwin's bash with this command to run: "wget --no-check-certificate -q -O - https://github.com/stigkj/chef-cygwin-nos/install-rest.sh | sh"
+   3. install RubyGems with wget ... | sh
+   4. install chef, etc. with gem install
+   5. copy client.rb and validator.pem to from host OS to /etc/chef (how?)
+   6. start initial chef-client run which will install:
+     1. apt-cyg
+     2.
 
 [1]: http://code.google.com/p/apt-cyg
 [2]: http://cygwin.org/setup.exe
