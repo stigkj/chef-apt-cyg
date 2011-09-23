@@ -11,7 +11,7 @@ puts 'Starting installation...'
 puts
 
 cd("/tmp") {
-    `gem --version`
+    `gem --version 2>&1`
 
     if ($?.exitstatus == 0)
         puts '  RubyGems is already installed'
@@ -26,7 +26,7 @@ cd("/tmp") {
         }
     end
 
-    `chef-client --version`
+    `chef-client --version 2>&1`
 
     if ($?.exitstatus == 0)
         puts '  Chef is already installed'
