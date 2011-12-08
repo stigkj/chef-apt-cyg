@@ -1,15 +1,20 @@
 @echo off
+setlocal
 
 set CYGWIN=nodosfilewarning
-set CYGWIN_HOME=c:\cygwin
+set CYGWIN_HOME_DEFAULT=c:\cygwin
 set SITE=ftp://ftp.sunet.se/pub/lang/cygwin
 set CURRENT_DIR=%~dp0
 set CURRENT_DIR=%CURRENT_DIR:\=/%
 
+if not exist setup.exe goto setup_not_found
+
+set /p CYGWIN_HOME="Specify alternative Cygwin installation directory (default is %CYGWIN_HOME_DEFAULT%, must not exist): "
+
+if "%CYGWIN_HOME%"=="" set CYGWIN_HOME=%CYGWIN_HOME_DEFAULT%
+
 echo.
 echo Installing Cygwin under %CYGWIN_HOME%...
-
-if not exist setup.exe goto setup_not_found
 
 if not exist %CYGWIN_HOME% goto default_packages
 
@@ -47,3 +52,4 @@ echo setup.exe must be downloaded from http://cygwin.org and put in this directo
 echo.
 
 :end
+endlocal
