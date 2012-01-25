@@ -40,7 +40,9 @@ if (File.exist?("#{install_dir}/client.rb") && File.exist?("#{install_dir}/valid
     puts '  copying Chef client configuration files (client.rb & validation.pem) to /etc/chef'
     mkdir_p("/etc/chef")
     cp(["#{install_dir}/client.rb", "#{install_dir}/validation.pem"], "/etc/chef")
-
+    # Make sure the files are readable
+    chmod 0644, %w(/etc/chef/client.rb /etc/chef/validation.pem)
+    
     puts '  initial run of chef'
     `chef-client -N cygwin`
 else
