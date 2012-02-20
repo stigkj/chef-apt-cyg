@@ -2,7 +2,7 @@
 # Cookbook Name:: cygwin
 # Recipe:: default
 #
-# Copyright 2011, YOUR_COMPANY_NAME
+# Copyright 2011, Stig Kleppe-Jørgensen
 #
 # All rights reserved - Do Not Redistribute
 #
