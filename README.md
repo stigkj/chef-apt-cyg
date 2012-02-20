@@ -40,59 +40,22 @@ These are the high level steps to get a Windows machine ready for using chef-cyg
 3. Install RubyGems
 4. Install chef with related tools
 
-* cygwin (obviously)
-*
+Instead of doing all this manually, most of these are automated. Just follow these steps:
 
+1. Create a new directory or use an existing as long as it is empty<br>
+  **NB!** must not be the same directory as cygwin is installed into
+2. Download the following files into this directory
+    * [install-cygwin.cmd](install-cygwin.cmd)
+    * [cygwin's setup.exe][5]
+    * client.rb and validation.pem (from your chef-server installation)
+3. Open cmd.exe in this directory
+4. Start install-cygwin.cmd
 
-
-cygwin must be installed with the following packages in addition to the standard before installing chef:
-
-* make
-* gcc-core 
-* wget
-* ruby
-
-The following commands will do this automatically for you. Run them from the Windows command line (cmd) in the directory
-where [cygwin's setup.exe][5] is downloaded:
-
-```
-C:\> setup -q -O -s ftp://ftp.sunet.se/pub/lang/cygwin
-```
-
-```
-C:\> setup -q -O -s ftp://ftp.sunet.se/pub/lang/cygwin -P make,gcc-core,wget,ruby
-```
-
-Before installing chef, RubyGems must be installed. Run the following from within cygwin:
-
-```
-wget --no-check-certificate -q -O - https://raw.github.com/stigkj/chef-cygwin-nos/master/install-rubygems.sh | sh
-```
-
-Then chef and related tools can be installed from within cygwin:
-
-```
-gem install ohai chef --no-rdoc --no-ri
-```
+When the script is finished, you will have a new/updated installation of Cygwin under c:\cygwin, or whatever
+directory you specified.
 
 For more information look at the [Installation on Windows][6] walk through on Opscode's wiki. Just remember that you
 should **not** install RubyInstaller/RubyInstaller DevKit for Windows as this won't work properly under cygwin.
-
-Automated install
-=================
-
-* Download setup.exe and install-chef.cmd to c:\tmp
-* Download client.rb and validator.pem to c:\tmp
-* Run install-chef.cmd
- 1. runs setup with standard packages
- 2. runs setup with extra packages: make, gcc-core, wget and ruby
- 3. starts cygwin's bash with this command to run: "wget --no-check-certificate -q -O - https://github.com/stigkj/chef-cygwin-nos/install-rest.sh | sh"
-   3. install RubyGems with wget ... | sh
-   4. install chef, etc. with gem install
-   5. copy client.rb and validator.pem to from host OS to /etc/chef (how?)
-   6. start initial chef-client run which will install:
-     1. apt-cyg
-     2.
 
 
 [1]: http://coapp.org
