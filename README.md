@@ -88,11 +88,6 @@ Automated install
      1. apt-cyg
      2.
 
-TODO
-----
-* move todos to another file?
-* use the vow.js design on chef-cygwin gh-pages branch? Or better something like it
-
 
 [1]: http://coapp.org
 [2]: https://github.com/chocolatey/chocolatey
