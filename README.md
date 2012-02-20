@@ -11,13 +11,12 @@ installing/uninstalling/dependency handling under chef way more difficult than a
 with. I know, I know, there are someone trying [to][1] [rectify][2] [that][3], but until that has gone through a _few_
 more iterations we are left with nada. Or are we?
 
-There is an excellent package (noe annet??) called Cygwin that let you have quite a complete Unix/Posix environment
-under Windows. And as it happens it has a decent package manager (based on Gentoo?? ha det med??) that has the features
-we like, packing install/uninstall actions, dependency handling and more.
+There is an excellent project called Cygwin that let you have quite a complete Unix/Posix environment under Windows.
+And as it happens it has a decent package manager that has the features we like, with install/uninstall actions,
+dependency handling and more.
 
-The only problem is that this package manager is packaged up (no pun intended) as a GUI application which makes it
-unfit for our purpose. As luck will have it, there is an _excellent_ command line package manager called [apt-cyg][4]
-which _do_ fit our purpose.
+The only problem is that this package manager is a GUI application which makes it unfit for our purpose. As luck will
+have it, there is an _excellent_ command line package manager called [apt-cyg][4] which _do_ fit our purpose.
 
 So, by utilizing `apt-cyg`, chef-cygwin makes it easy to install packages under Cygwin. Or wouldn't you say so:
 
@@ -30,9 +29,16 @@ end
 Requirements
 ------------
 
-These are the high level steps to get a Windows machine ready for using chef-cygwin to
+These are the high level steps to get a Windows machine ready for using chef-cygwin:
 
-These are the high level packages that must be installed for chef-cygwin to work:
+1. Download and install cygwin (obviously)
+2. Install additional packages needed by chef
+    * make
+    * gcc-core
+    * wget
+    * ruby
+3. Install RubyGems
+4. Install chef with related tools
 
 * cygwin (obviously)
 *
