@@ -4,7 +4,7 @@ chef-cygwin
 > _What?! You want to use chef to manage Windows machines? Good luck with that..._
 
 Overview
-========
+--------
 
 I am not saying you cannot use chef under Windows. It is just that Windows lacks a package manager, which makes
 installing/uninstalling/dependency handling under chef way more difficult than anyone in their right mind would deal
@@ -28,7 +28,7 @@ end
 ```
 
 Requirements
-============
+------------
 
 These are the high level steps to get a Windows machine ready for using chef-cygwin to
 
