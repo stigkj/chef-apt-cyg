@@ -1,5 +1,5 @@
-maintainer       "Stig Kleppe-Jorgensen"
-maintainer_email "from.github@nisgits.net"
+maintainer       "Stig Kleppe-Jørgensen"
+maintainer_email "from.chef-cygwin@nisgits.net"
 license          "MIT"
 description      "Adds package manager that can be used under cygwin"
 long_description IO.read(File.join(File.dirname(__FILE__), 'README.md'))
