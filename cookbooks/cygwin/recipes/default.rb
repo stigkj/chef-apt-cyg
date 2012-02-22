@@ -1,5 +1,5 @@
 #
-# Cookbook Name:: cygwin
+# Cookbook Name:: apt-cyg
 # Recipe:: default
 #
 # Copyright 2011, Stig Kleppe-Jørgensen

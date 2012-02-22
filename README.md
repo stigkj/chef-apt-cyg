@@ -1,4 +1,4 @@
-chef-cygwin
+chef-aptcyg
 ===========
 
 > _What?! You want to use chef to manage Windows machines? Good luck with that..._
@@ -18,7 +18,7 @@ dependency handling and more.
 The only problem is that this package manager is a GUI application which makes it unfit for our purpose. As luck will
 have it, there is an _excellent_ command line package manager called [apt-cyg][4] which _do_ fit our purpose.
 
-So, by utilizing `apt-cyg`, chef-cygwin makes it easy to install packages under Cygwin. Or wouldn't you say so:
+So, by utilizing `apt-cyg`, chef-aptcyg makes it easy to install packages under Cygwin. Or wouldn't you say so:
 
 ```ruby
 package "git" do
@@ -29,7 +29,7 @@ end
 Requirements
 ------------
 
-These are the high level steps to get a Windows machine ready for using chef-cygwin:
+These are the high level steps to get a Windows machine ready for using chef-aptcyg:
 
 1. Download and install cygwin (obviously)
 2. Install additional packages needed by chef
