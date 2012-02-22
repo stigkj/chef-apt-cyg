@@ -3,8 +3,8 @@ chef-aptcyg
 
 > _What?! You want to use chef to manage Windows machines? Good luck with that..._
 
-Overview
---------
+Description
+-----------
 
 I am not saying you cannot use chef under Windows. It is just that Windows lacks a package manager, which makes
 installing/uninstalling/dependency handling under chef way more difficult than anyone in their right mind would deal
@@ -31,7 +31,7 @@ Requirements
 
 These are the high level steps to get a Windows machine ready for using chef-aptcyg:
 
-1. Download and install cygwin (obviously)
+1. Download and install Cygwin (obviously)
 2. Install additional packages needed by chef
     * make
     * gcc-core
@@ -43,10 +43,10 @@ These are the high level steps to get a Windows machine ready for using chef-apt
 Instead of doing all this manually, most of these are automated. Just follow these steps:
 
 1. Create a new directory or use an existing as long as it is empty<br>
-  **NB!** must not be the same directory as cygwin is installed into
+  **NB!** must not be the same directory as Cygwin is installed into
 2. Download the following files into this directory
     * [install-cygwin.cmd](install-cygwin.cmd)
-    * [cygwin's setup.exe][5]
+    * [Cygwin's setup.exe][5]
     * client.rb and validation.pem (from your chef-server installation)
 3. Open cmd.exe in this directory
 4. Start install-cygwin.cmd
@@ -55,7 +55,44 @@ When the script is finished, you will have a new/updated installation of Cygwin 
 directory you specified.
 
 For more information look at the [Installation on Windows][6] walk through on Opscode's wiki. Just remember that you
-should **not** install RubyInstaller/RubyInstaller DevKit for Windows as this won't work properly under cygwin.
+should **not** install RubyInstaller/RubyInstaller DevKit for Windows as this won't work properly under Cygwin.
+
+Attributes
+----------
+
+None.
+
+Usage
+-----
+
+Just make sure that this cookbook is selected before you start installing packages. You can add:
+
+  include_recipe 'apt-cyg'
+
+to all your recipes that install packages, or you can just make sure it's on the run list somewhere early on.
+The bookbook itself ensures that apt-cyg is installed and up to date.
+
+License and Author
+------------------
+
+**Author:**
+> Stig Kleppe-Jørgensen (<from-chef-aptcyg@nisgits.net>)
+
+**Copyright:**
+> 2011-, Stig Kleppe-Jørgensen
+
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
+
 
 
 [1]: http://coapp.org
