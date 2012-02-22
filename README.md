@@ -21,7 +21,7 @@ have it, there is an _excellent_ command line package manager called [apt-cyg][4
 So, by utilizing `apt-cyg`, chef-cygwin makes it easy to install packages under Cygwin. Or wouldn't you say so:
 
 ```ruby
-cygwin_package "git" do
+package "git" do
   action :install
 end
 ```
