@@ -1,3 +1,4 @@
+# Chef package provider for apt-cyg
 
 require 'chef/provider/package'
 require 'chef/resource/package'
@@ -6,7 +7,7 @@ require 'chef/platform'
 class Chef
   class Provider
     class Package
-      class Cygwin < Package
+      class AptCyg < Package
         def load_current_resource
           @current_resource = Chef::Resource::Package.new(@new_resource.name)
           @current_resource.package_name(@new_resource.package_name)
@@ -73,4 +74,4 @@ class Chef
   end
 end
 
-Chef::Platform.set :platform => :cygwin, :resource => :package, :provider => Chef::Provider::Package::Cygwin
+Chef::Platform.set :platform => :cygwin, :resource => :package, :provider => Chef::Provider::Package::AptCyg
