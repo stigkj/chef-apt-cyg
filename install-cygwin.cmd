@@ -43,7 +43,7 @@ echo   extra packages already installed
 :inside_cygwin
 
 echo   running installation of chef from inside Cygwin
-%CYGWIN_HOME%\bin\bash.exe --login -c "wget --no-check-certificate -q -O /tmp/iic.rb https://raw.github.com/stigkj/chef-cygwin/develop/install-inside-cygwin.rb; sed -i 's&#INSTALL_DIR#&%CURRENT_DIR%&' /tmp/iic.rb; ruby /tmp/iic.rb"
+%CYGWIN_HOME%\bin\bash.exe --login -c "wget --no-check-certificate -q -O /tmp/iic.rb https://raw.github.com/stigkj/chef-apt-cyg/develop/install-inside-cygwin.rb; sed -i 's&#INSTALL_DIR#&%CURRENT_DIR%&' /tmp/iic.rb; ruby /tmp/iic.rb"
 goto end
 
 :setup_not_found
