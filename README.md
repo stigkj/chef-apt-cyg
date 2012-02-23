@@ -29,7 +29,9 @@ end
 Requirements
 ------------
 
-These are the high level steps to get a Windows machine ready for using chef-apt-cyg:
+### High-level steps
+
+These are the high-level steps to get a Windows machine ready for using chef-apt-cyg:
 
 1. Download and install Cygwin (obviously)
 2. Install additional packages needed by chef
@@ -40,7 +42,9 @@ These are the high level steps to get a Windows machine ready for using chef-apt
 3. Install RubyGems
 4. Install chef with related tools
 
-Instead of doing all this manually, most of these are automated. Just follow these steps:
+### Automated install
+
+Instead of doing this manually, most of these are automated. Just follow these steps:
 
 1. Create a new directory or use an existing as long as it is empty<br>
   **NB!** must not be the same directory as Cygwin is installed into
