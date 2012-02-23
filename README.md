@@ -75,11 +75,8 @@ The bookbook itself ensures that apt-cyg is installed and up to date.
 License and Author
 ------------------
 
-**Author:**
-> Stig Kleppe-Jørgensen (<from-chef-apt-cyg@nisgits.net>)
-
-**Copyright:**
-> 2011-, Stig Kleppe-Jørgensen
+**Author:** Stig Kleppe-Jørgensen (<from-chef-apt-cyg@nisgits.net>)<br>
+**Copyright:** 2011-, Stig Kleppe-Jørgensen
 
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
