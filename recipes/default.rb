@@ -1,5 +1,5 @@
 #
-# Cookbook Name:: cygwin
+# Cookbook Name:: apt-cyg
 # Recipe:: default
 #
 # Copyright 2011, Stig Kleppe-Jørgensen
@@ -13,8 +13,9 @@ remote_file "/usr/local/bin/apt-cyg" do
   not_if { File.exists?("/usr/local/bin/apt-cyg") }
 end
 
-
-# FIXME check if this can be used against Google Code, that is, if it handles if-modified-since headers
+# FIXME should this be enabled; Google supports this
+# If this is run for every invocation of a package in a recipe, then the above is better
+#
 #remote_file "/tmp/couch.png" do
 #  source "http://couchdb.apache.org/img/sketch.png"
 #  action :nothing
