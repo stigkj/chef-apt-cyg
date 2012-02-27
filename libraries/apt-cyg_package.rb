@@ -33,7 +33,7 @@ class Chef
         protected
         def apt_cyg(*args)
           run_command_with_systems_locale(
-            :command => "apt-cyg #{args.join(' ')}"
+            :command => "/bin/bash /usr/local/bin/apt-cyg #{args.join(' ')}"
           )
         end
 
@@ -45,7 +45,7 @@ class Chef
 
         def candidate_version
           get_version_from_command(
-              "apt-cyg -u describe '^#{@new_resource.package_name}$' | awk '/^version: / { print $2 }' | head -1"
+              "/bin/bash /usr/local/bin/apt-cyg -u describe '^#{@new_resource.package_name}$' | awk '/^version: / { print $2 }' | head -1"
           )
         end
 
