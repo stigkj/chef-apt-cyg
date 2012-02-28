@@ -24,7 +24,7 @@ class Chef
         alias_method :upgrade_package, :install_package
 
         def remove_package(name, version)
-          apt_cyg('-u', 'remove', name)
+          apt_cyg('remove', name)
         end
 
         # apt-cyg doesn't really have a notion of purging, so just remove
@@ -33,7 +33,7 @@ class Chef
         protected
         def apt_cyg(*args)
           run_command_with_systems_locale(
-            :command => "/bin/bash /usr/local/bin/apt-cyg #{args.join(' ')}"
+            :command => "/bin/bash /usr/local/bin/apt-cyg -u #{args.join(' ')}"
           )
         end
 
