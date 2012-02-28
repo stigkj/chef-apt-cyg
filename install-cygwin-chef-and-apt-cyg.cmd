@@ -42,6 +42,9 @@ echo   extra packages already installed
 
 :inside_cygwin
 
+echo   rebasing all programs/libraries
+%CYGWIN_HOME%\bin\dash.exe -c "/bin/rebaseall"
+
 echo   running installation of chef from inside Cygwin
 
 @REM Everything from ___DATA___ (see below) and to the end of this file is a ruby script that is to be run
