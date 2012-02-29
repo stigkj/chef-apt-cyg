@@ -47,13 +47,13 @@ These are the high-level steps to get a Windows machine ready for using chef-apt
 Instead of doing this manually, most of these are automated. Just follow these steps:
 
 1. Create a new directory or use an existing as long as it is empty<br>
-  **NB!** must not be the same directory as Cygwin is installed into
+  **NB!** cannot be the same directory as Cygwin is installed into
 2. Download the following files into this directory
-    * [install-cygwin.cmd](install-cygwin.cmd)
+    * [install-cygwin-chef-and-apt-cyg.cmd](install-cygwin-chef-and-apt-cyg.cmd)
     * [Cygwin's setup.exe][5]
     * client.rb and validation.pem (from your chef-server installation)
 3. Open cmd.exe in this directory
-4. Start install-cygwin.cmd
+4. Start install-cygwin-chef-and-apt-cyg.cmd
 
 When the script is finished, you will have a new/updated installation of Cygwin under c:\cygwin, or whatever
 directory you specified.
@@ -74,7 +74,7 @@ Just make sure that this cookbook is selected before you start installing packag
   include_recipe 'apt-cyg'
 
 to all your recipes that install packages, or you can just make sure it's on the run list somewhere early on.
-The bookbook itself ensures that apt-cyg is installed and up to date.
+The cookbook itself ensures that apt-cyg is installed and up to date.
 
 License and Author
 ------------------
