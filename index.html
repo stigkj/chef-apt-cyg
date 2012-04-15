@@ -1,0 +1,139 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <title>Chef-apt-cyg by stigkj</title>
+
+    <link rel="stylesheet" href="stylesheets/styles.css">
+    <link rel="stylesheet" href="stylesheets/pygment_trac.css">
+    <script src="javascripts/scale.fix.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    <div class="wrapper">
+      <header>
+        <h1>Chef-apt-cyg</h1>
+<p>Chef cookbook for installing and configuring apt-cyg to be used as a package manager under Cygwin</p>
+        <p class="view"><a href="https://github.com/stigkj/chef-apt-cyg">View the Project on GitHub <small>stigkj/chef-apt-cyg</small></a></p>
+        <ul>
+          <li><a href="https://github.com/stigkj/chef-apt-cyg/zipball/master">Download <strong>ZIP File</strong></a></li>
+          <li><a href="https://github.com/stigkj/chef-apt-cyg/tarball/master">Download <strong>TAR Ball</strong></a></li>
+          <li><a href="https://github.com/stigkj/chef-apt-cyg">View On <strong>GitHub</strong></a></li>
+        </ul>
+      </header>
+      <section>
+        <h1>chef-apt-cyg</h1>
+
+<blockquote>
+<p><em>What?! You want to use chef to manage Windows machines? Good luck with that...</em></p>
+</blockquote>
+
+<h2>Description</h2>
+
+<p>I am not saying you cannot use chef under Windows. It is just that Windows lacks a package manager, which makes
+installing/uninstalling/dependency handling under chef way more difficult than anyone in their right mind would deal
+with. I know, I know, there are someone trying <a href="http://coapp.org">to</a> <a href="https://github.com/chocolatey/chocolatey">rectify</a> <a href="http://code.google.com/p/windows-package-manager">that</a>, but until that has gone through a <em>few</em>
+more iterations we are left with nada. Or are we?</p>
+
+<p>There is an excellent project called Cygwin that let you have quite a complete Unix/Posix environment under Windows.
+And as it happens it has a decent package manager that has the features we like, with install/uninstall actions,
+dependency handling and more.</p>
+
+<p>The only problem is that this package manager is a GUI application which makes it unfit for our purpose. As luck will
+have it, there is an <em>excellent</em> command line package manager called <a href="http://code.google.com/p/apt-cyg">apt-cyg</a> which <em>do</em> fit our purpose.</p>
+
+<p>So, by utilizing <code>apt-cyg</code>, chef-apt-cyg makes it easy to install packages under Cygwin. Or wouldn't you say so:</p>
+
+<div class="highlight">
+<pre><span class="n">package</span> <span class="s2">"git"</span> <span class="k">do</span>
+  <span class="n">action</span> <span class="ss">:install</span>
+<span class="k">end</span>
+</pre>
+</div>
+
+
+<h2>Requirements</h2>
+
+<h3>High-level steps</h3>
+
+<p>These are the high-level steps to get a Windows machine ready for using chef-apt-cyg:</p>
+
+<ol>
+<li>Download and install Cygwin (obviously)</li>
+<li>Install additional packages needed by chef
+
+<ul>
+<li>make</li>
+<li>gcc-core</li>
+<li>wget</li>
+<li>ruby</li>
+</ul>
+</li>
+<li>Install RubyGems</li>
+<li>Install chef with related tools</li>
+</ol><h3>Automated install</h3>
+
+<p>Instead of doing this manually, most of these are automated. Just follow these steps:</p>
+
+<ol>
+<li>Create a new directory or use an existing as long as it is empty<br><strong>NB!</strong> cannot be the same directory as Cygwin is installed into</li>
+<li>Download the following files into this directory
+
+<ul>
+<li><a href="install-cygwin-chef-and-apt-cyg.cmd">install-cygwin-chef-and-apt-cyg.cmd</a></li>
+<li><a href="http://cygwin.org/setup.exe">Cygwin's setup.exe</a></li>
+<li>client.rb and validation.pem (from your chef-server installation)</li>
+</ul>
+</li>
+<li>Open cmd.exe in this directory</li>
+<li>Start install-cygwin-chef-and-apt-cyg.cmd</li>
+</ol><p>When the script is finished, you will have a new/updated installation of Cygwin under c:\cygwin, or whatever
+directory you specified.</p>
+
+<p>For more information look at the <a href="http://wiki.opscode.com/display/chef/Installation+on+Windows">Installation on Windows</a> walk through on Opscode's wiki. Just remember that you
+should <strong>not</strong> install RubyInstaller/RubyInstaller DevKit for Windows as this won't work properly under Cygwin.</p>
+
+<h2>Attributes</h2>
+
+<p>None.</p>
+
+<h2>Usage</h2>
+
+<p>Just make sure that this cookbook is selected before you start installing packages. You can add:</p>
+
+<p>include_recipe 'apt-cyg'</p>
+
+<p>to all your recipes that install packages, or you can just make sure it's on the run list somewhere early on.
+The cookbook itself ensures that apt-cyg is installed and up to date.</p>
+
+<h2>License and Author</h2>
+
+<p><strong>Author:</strong> Stig Kleppe-Jørgensen (<a href="mailto:from-chef-apt-cyg@nisgits.net">from-chef-apt-cyg@nisgits.net</a>)<br><strong>Copyright:</strong> 2011-, Stig Kleppe-Jørgensen</p>
+
+<p>Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at</p>
+
+<pre><code><a href="http://www.apache.org/licenses/LICENSE-2.0">http://www.apache.org/licenses/LICENSE-2.0</a>
+</code></pre>
+
+<p>Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.</p>
+      </section>
+    </div>
+    <footer>
+      <p>Project maintained by <a href="https://github.com/stigkj">stigkj</a></p>
+      <p>Hosted on GitHub Pages &mdash; Theme by <a href="https://github.com/orderedlist">orderedlist</a></p>
+    </footer>
+    <!--[if !IE]><script>fixScale(document);</script><!--<![endif]-->
+    
+  </body>
+</html>
